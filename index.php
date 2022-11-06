@@ -1,3 +1,9 @@
+<?php
+    @$page = $_GET["page"];
+    if($page == ""){
+        $page = "./routes/home/home";
+    }
+?>
 
 <!DOCTYPE html>
 <html>
@@ -12,17 +18,20 @@
     <header></header>
 
 
-        <nav class="topnav" id="myTopnav">
-        <a href="#home" class="active">Home</a>
-        <a href="#news">News</a>
-        <a href="#contact">Contact</a>
-        <a href="#about">About</a>
+    <nav class="topnav" id="myTopnav">
+        <a href="index.php?page=./routes/home/home">Strona główna</a>
+        <a href="index.php?page=./routes/add-product/add">Dodaj produkt</a>
+        <a href="index.php?page=./routes/login-reg/logreg">Zaloguj/Zarejestruj</a>
+        <a href="index.php?page=./routes/my-acc/myaccount">Moje konto</a>
         <a href="javascript:void(0);" class="icon" onclick="myFunction()">
             <i class="fa fa-bars"></i>
         </a>
-        </nav>
+    </nav>
     <main>
         <section class="mainsection">
+            <?php
+                include($page.".php");
+            ?>
         </section>
     </main>
 
