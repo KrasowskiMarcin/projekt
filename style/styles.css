@@ -10,6 +10,8 @@ header{
     height: 200px;
     width: auto;
     
+  text-align: center;
+
     margin-top: 10px;
     margin-bottom: 10px;
     margin-left: 20px;
@@ -17,8 +19,27 @@ header{
 
     border-radius: 15px;
 
+    background-image: url('https://www.national-geographic.pl/media/cache/slider_big/uploads/media/default/0014/31/szczecin.jpeg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
     background-color: #001E6C;
 }
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+.container h2{
+  color: white;
+  padding: 10px;
+  background-color: #E8630A;
+  font-size: 40px;
+}
+
 
 /* Main section */
 .mainsection{

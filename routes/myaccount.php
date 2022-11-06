@@ -18,7 +18,7 @@ center{
 
 .container {
   display: flex;
-  /* align-items: center; */
+  align-items: center;
   justify-content: center;
   height: 100%;
 }

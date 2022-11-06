@@ -3,10 +3,13 @@
 </article>
 
 <style>
-.container {
+/* .container {
   display: flex;
   align-items: center;
   justify-content: center;
   height: 100%;
+} */
+.container > * {
+    display: inline-block;
 }
 </style>
