@@ -28,16 +28,16 @@
     </nav>
 
     <main>
+        <center>
         <section class="mainsection">
             <?php
                 include($page.".php");
             ?>
         </section>
+        </center>
     </main>
 
         <footer><p>Autor: Marcin Krasowski</p></footer>
-
-
 
     <script>
     function myFunction() {
