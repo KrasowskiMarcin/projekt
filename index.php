@@ -17,7 +17,6 @@
 
     <header></header>
 
-
     <nav class="topnav" id="myTopnav">
         <a href="index.php?page=./routes/home/home">Strona główna</a>
         <a href="index.php?page=./routes/add-product/add">Dodaj produkt</a>
@@ -27,6 +26,7 @@
             <i class="fa fa-bars"></i>
         </a>
     </nav>
+
     <main>
         <section class="mainsection">
             <?php

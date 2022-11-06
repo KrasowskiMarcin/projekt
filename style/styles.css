@@ -34,10 +34,9 @@ header{
     margin-right: 20px;
 
     background-color: white;
+
+    display: table;
 }
-
-
-
 
  /* Footer */
 footer{
