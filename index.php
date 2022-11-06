@@ -1,7 +1,7 @@
 <?php
     @$page = $_GET["page"];
     if($page == ""){
-        $page = "./routes/home/home";
+        $page = "./routes/home";
     }
 ?>
 
