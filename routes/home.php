@@ -1,14 +1,17 @@
 <article class="container">
-    dsadasdsa
+    <a href="index.php?page=./routes/productdetails"class="button">Pokaż stronę detali</a>
 </article>
 
 <style>
-/* .container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 100%;
-} */
+  a.button {
+    -webkit-appearance: button;
+    -moz-appearance: button;
+    appearance: button;
+
+    text-decoration: none;
+    color: blue;
+}
+
 .container > * {
     display: inline-block;
 }
