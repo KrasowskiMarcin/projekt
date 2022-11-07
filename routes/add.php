@@ -1,5 +1,7 @@
-<center><h1> Dodaj Produkt </h1></center>
-<article class="container">
+<body>
+    <center><h1> Dodaj Produkt </h1></center>
+    <center>
+    <section class="container">
     <form action="" method="POST">
                 <p>Nazwa produktu </p>
                 <p><input type="text" name="prodName"/></p>
@@ -9,18 +11,23 @@
                 <p><input type="text" name="login"/></p>
                 <center><p><input type="submit" /></p></center>
     </form>
-</article>
+    </section>
+    </center>
+</body>
 
 <style>
+  
 center{
     padding-top: 10px;
 }
 
-.container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 100%;
+.container > * {
+    display: inline-block;
+}
+
+form{
+  padding-left: 20px;
+  padding-right: 20px;
 }
 
 input[type="submit"]{
