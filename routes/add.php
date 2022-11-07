@@ -1,4 +1,8 @@
-<body>
+<?php
+    require_once 'connection.php';
+?>
+
+<body> 
     <center><h1> Dodaj Produkt </h1></center>
     <center>
     <section class="container">
@@ -8,11 +12,30 @@
                 <p>Opis </p>
                 <p><textarea name="description"></textarea></p>
                 <p>URL obrazu </p>
-                <p><input type="text" name="login"/></p>
+                <p><input type="text" name="imageUrl"/></p>
                 <center><p><input type="submit" /></p></center>
     </form>
     </section>
     </center>
+
+    <?php
+        if(isset($_POST['prodName']) && 
+        isset($_POST['description']) &&
+        isset($_POST['imageUrl'])
+        ){
+            $name = $_POST['prodName'];
+            $description = $_POST['description'];
+            $imageUrl = $_POST['imageUrl'];
+
+            // zapytanie do bazy danych, które wstawi nowy produkt
+            $sql = "INSERT INTO `products`(`id`, `nazwa`, `opis`, `url_obrazu`)
+	        VALUES (NULL, '$name', '$description', '$imageUrl')";
+
+            if($result = mysqli_query($connection, $sql)) echo "Dodano $name";
+            else echo "Nie udało się dodać produktu";
+
+        }
+    ?>
 </body>
 
 <style>
