@@ -3,7 +3,7 @@
 ?>
 
 <center><h1>Dostępne gadżety</h1></center>
-<article class="container">
+<section class="container">
 <!-- <a href="index.php?page=./routes/productdetails"class="button">Pokaż stronę detali</a> -->
 
 <?php
@@ -11,19 +11,21 @@
     $item = "item";
     $image = "image";
     $button = "btn";
-
     // query, które wyświetli obecne produkty, które znajdują się w bazie
     $query = "SELECT * FROM products";
 	$result = mysqli_query($connection, $query);
 	while($row = mysqli_fetch_array($result)){
         $nazwa = $row['nazwa'];
         $url_obrazu = $row['url_obrazu'];
+        $id = $row['id'];
+        
+        $productDetailsPath = "index.php?page=./routes/productdetails&id=$id";
 
         echo "
         <section class = $item>
             <p> $nazwa </p>
             <img src=$url_obrazu>
-            <button class=$button>Szczegóły produktu</button>
+            <a href=$productDetailsPath class=$button>Szczegóły produktu</a>
         </section>
         ";
 		echo '<br><br>';
@@ -31,7 +33,7 @@
 ?>
 
 
-</article>
+</section>
 
 <style>
 center{
