@@ -45,6 +45,11 @@ center{
     display: inline-block;
 }
 
+.container{
+}
+
+
+
 .image{
     height: 400px;
     width: 400px;

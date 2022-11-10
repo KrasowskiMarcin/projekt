@@ -3,8 +3,8 @@
 ?>
 
 <center><h1>Dostępne gadżety</h1></center>
+<section class ="wrap">
 <section class="container">
-<!-- <a href="index.php?page=./routes/productdetails"class="button">Pokaż stronę detali</a> -->
 
 <?php
     // zmienne do itemu
@@ -28,11 +28,12 @@
             <a href=$productDetailsPath class=$button>Szczegóły produktu</a>
         </section>
         ";
-		echo '<br><br>';
+
 	}
 ?>
 
 
+</section>
 </section>
 
 <style>
@@ -50,15 +51,32 @@ center{
 
 .container > * {
     display: inline-block;
+    /* max-height: 200px;
+    height: calc(100%-10px);; */
+    /* display:flex;
+    flex-wrap:wrap; */
+}
+
+.wrap{
+  height: 66vh;
+  width: 80%;
+  max-width:100%;
+  max-height:50vh;
+
+  overflow: -moz-scrollbars-vertical; 
+  overflow-y: scroll;
+  text-align: center;
+
+  border: 1px solid black;
 }
 
 /* Style itemów */
 
 .item {
-    margin: 50px;
+  margin: 50px;
   position: relative;
   height: 100px;
-    width: 100px;
+  width: 100px;
 
     
 }

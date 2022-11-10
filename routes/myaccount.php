@@ -3,10 +3,12 @@
     <center>
     <section class="container">
     <form action="" method="POST">
-                <p>Dane osobowe: Jan Kowalski</p>
-                <p>Nick: Jkowalski</p>
+                <p>Dane osobowe</p>
+                <p><input type="text" name="login" value="Jan Kowalski"/></p>
+                <p>Nick</p>
+                <p><input type="text" name="login" value="JKowal"/></p>
                 <p>Kontakt</p>
-                <p><textarea name="contact"></textarea></p>
+                <p><textarea name="contact">jkowalski@gmail.com</textarea></p>
                 <center><p><input type="submit" value="Zmień" /></p></center>
     </form>
     </section>
@@ -15,6 +17,9 @@
 
 <style>
   
+*{
+    text-align: center;
+}
 center{
     padding-top: 10px;
 }
