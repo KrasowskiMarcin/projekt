@@ -1,4 +1,19 @@
 <?php
+require_once 'connection.php';
+session_start();
+$id = $_COOKIE["userId"];
+$query = "SELECT * FROM users WHERE id = '$id'";
+$result = mysqli_query($connection, $query);
+
+$nameVal = '';
+$loginVal = '';
+$contactVal = '';
+
+while($row = mysqli_fetch_array($result)){
+    $nameVal =  $row['name'];
+    $loginVal =  $row['login'] ;
+    $contactVal = $row['contact'];
+}
 ?>
 
 <body>
@@ -7,11 +22,11 @@
     <section class="container">
     <form action="" method="POST">
                 <p>Dane osobowe</p>
-                <p><input type="text" name="login" value="Jan Kowalski"/></p>
+                <p><input type="text" name="name" value="<?php echo $nameVal ?>"/></p>
                 <p>Nick</p>
-                <p><input type="text" name="login" value="JKowal"/></p>
+                <p><input type="text" name="login" value="<?php echo $loginVal ?>"/></p>
                 <p>Kontakt</p>
-                <p><textarea name="contact">jkowalski@gmail.com</textarea></p>
+                <p><textarea name="contact"><?php echo $contactVal ?></textarea></p>
                 <center><p><input type="submit" value="Zmień" /></p></center>
     </form>
     </section>

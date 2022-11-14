@@ -1,5 +1,13 @@
 <?php
 require_once 'connection.php';
+
+session_start();
+if($_SESSION["loggedIn"] == true){
+    $id = $_SESSION["userId"];
+    setcookie("userId", $id, time() + 3600, '/');
+}else{
+    echo "";
+}
 ?>
 
 <body>
@@ -46,8 +54,12 @@ require_once 'connection.php';
                 while($row = mysqli_fetch_array($result)){
                     if(password_verify($password, $row['password'])){
                         echo 'Zalogowano jako '.$row['name'];
+                        $_SESSION["loggedIn"] = true;
+                        $_SESSION["userId"] = $row["id"];
                     }else{
+                        session_destroy();
                         echo "Błąd logowania";
+                        // $_SESSION["loggedIn"] = false;
                     }
                 }
             }               
