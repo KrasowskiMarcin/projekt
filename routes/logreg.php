@@ -15,7 +15,7 @@ require_once 'connection.php';
                     <center><p><input type="submit" name="loginIn" value="Zaloguj"/></p></center>
         </form>
         
-        <form action="" method="POST">
+        <form action="index.php?page=./routes/logreg" method="POST">
                   <center><h1>Zarejestruj</h1></center>
                   <p>Imie i nazwisko </p>
                   <p><input type="text" name="nameSur"/></p>
@@ -45,12 +45,12 @@ require_once 'connection.php';
                 $result = mysqli_query($connection, $query);
                 while($row = mysqli_fetch_array($result)){
                     if(password_verify($password, $row['password'])){
-                        echo "pass";
+                        echo 'Zalogowano jako '.$row['name'];
                     }else{
-                        echo "test";
+                        echo "Błąd logowania";
                     }
                 }
-            }
+            }               
             }
         }
 
