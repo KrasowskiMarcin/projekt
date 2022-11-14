@@ -1,13 +1,18 @@
+<?php
+require_once 'connection.php';
+?>
+
 <body>
     <center>
-    <section class="container">
+    <section class="container2">
+        <section class="wrapLogReg">
         <form action="" method="POST">
                     <center><h1>Zaloguj</h1></center>
                     <p>Login </p>
                     <p><input type="text" name="login"/></p>
                     <p>Hasło </p>
                     <p><input type="password" name="pass"/></p>
-                    <center><p><input type="submit" value="Zaloguj"/></p></center>
+                    <center><p><input type="submit" name="loginIn" value="Zaloguj"/></p></center>
         </form>
         
         <form action="" method="POST">
@@ -19,21 +24,76 @@
                   <p>Hasło </p>
                   <p><input type="password" name="pass"/></p>
                   <p>Kontakt </p>
-                  <p><textarea name="description"></textarea></p>
-                  <center><p><input type="submit" value="Zarejestruj"/></p></center>
+                  <p><textarea name="contact"></textarea></p>
+                  <center><p><input type="submit" name="register" value="Zarejestruj"/></p></center>
       </form>
     </section>
+    </section>
     </center>
+
+    <?php
+        if(isset($_POST['loginIn'])){
+            if(isset($_POST['login']) && 
+            isset($_POST['pass'])){
+
+            $login = $_POST['login'];
+            $password = $_POST['pass'];
+            $query = "SELECT * FROM users WHERE login = '$login'";
+
+            if($login != '' || $password != ''){
+                
+                $result = mysqli_query($connection, $query);
+                while($row = mysqli_fetch_array($result)){
+                    if(password_verify($password, $row['password'])){
+                        echo "pass";
+                    }else{
+                        echo "test";
+                    }
+                }
+            }
+            }
+        }
+
+
+        if(isset($_POST['register'])){
+            if(isset($_POST['nameSur']) && 
+            isset($_POST['login']) &&
+            isset($_POST['pass'])
+            ){
+                $name = $_POST['nameSur'];
+                $contact = $_POST['contact'];
+                $login = $_POST['login'];
+                $password = $_POST['pass'];
+                $password_hash = password_hash($password, PASSWORD_BCRYPT);
+    
+                // zapytanie do bazy danych, które wstawi nowy produkt
+                $sql = "INSERT INTO `users`(`id`, `name`, `login`, `password`, `contact`)
+                VALUES (NULL, '$name', '$login', '$password_hash', '$contact')";
+                
+                if($name != '' || $login != '' || $contact != '' || $password != ''){
+                    if($result = mysqli_query($connection, $sql)) echo "Dodano użytkownika $name";
+                    else echo "Nie udało się dodać produktu";                
+                }
+            }
+        }
+    ?>
 </body>
 
 <style>
   
 center{
     padding-top: 10px;
+  
 }
 
-.container > * {
+.container2 > * {
     display: inline-block;
+}
+
+.wrapLogReg{
+    overflow: -moz-scrollbars-vertical; 
+    overflow-y: scroll;
+    height: 55vh;
 }
 
 form{

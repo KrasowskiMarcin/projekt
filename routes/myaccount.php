@@ -1,3 +1,7 @@
+<?php
+
+?>
+
 <body>
 <center><h1>Moje konto</h1></center>
     <center>
