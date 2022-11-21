@@ -82,7 +82,7 @@ center{
 
 .item img {
   width: 100%;
-  height: auto;
+  height: 75px;
 }
 
 .item .btn {

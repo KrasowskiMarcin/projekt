@@ -51,8 +51,8 @@ center{
 
 
 .image{
-    height: 400px;
-    width: 400px;
+    height: 100x;
+    width: 15%;
     /* background-color: red; */
     float:left;
     border: 1px solid;
