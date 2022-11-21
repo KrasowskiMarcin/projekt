@@ -2,7 +2,7 @@
 require_once 'connection.php';
 
 session_start();
-if(@$_SESSION["loggedIn"] == true){
+if($_SESSION["loggedIn"] == true){
     $id = $_SESSION["userId"];
     setcookie("userId", $id, time() + 3600, '/');
 }else{

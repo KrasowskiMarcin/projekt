@@ -1,7 +1,7 @@
 <?php
 require_once 'connection.php';
 session_start();
-@$id = $_COOKIE["userId"];
+$id = $_COOKIE["userId"];
 $query = "SELECT * FROM users WHERE id = '$id'";
 $result = mysqli_query($connection, $query);
 
