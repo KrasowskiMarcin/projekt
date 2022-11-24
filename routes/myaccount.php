@@ -27,10 +27,26 @@ while($row = mysqli_fetch_array($result)){
                 <p><input type="text" name="login" value="<?php echo $loginVal ?>"/></p>
                 <p>Kontakt</p>
                 <p><textarea name="contact"><?php echo $contactVal ?></textarea></p>
-                <center><p><input type="submit" value="Zmień" /></p></center>
+                <center><p><input type="submit" value="Zmień" name="update" /></p></center>
     </form>
     </section>
     </center>
+
+    <?php
+        if(isset($_POST['update'])){
+            if(isset($_POST['name']) || isset($_POST['login']) || isset($_POST['contact'])){
+
+                $newName = $_POST['name'];
+                $newLogin = $_POST['login'];
+                $newContact = $_POST['contact'];
+                
+                $newQuery = "UPDATE users SET name = '$newName', login = '$newLogin', contact = '$newContact' WHERE id = '$id'";
+                $newResult = mysqli_query($connection, $newQuery);
+                // refresh strony
+                echo "<meta http-equiv='refresh' content='0'>";
+            }
+        }
+    ?> 
 </body>
 
 <style>
