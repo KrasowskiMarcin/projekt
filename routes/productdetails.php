@@ -19,55 +19,22 @@
 
 <?php
     echo "<center><h1>$prodName</h1></center>";
+    echo "<center><h1>$prodDescription</h1></center>";
+    echo "<img src=$prodImageUrl>";
 ?>
-<article class="container">
-    <section class ="image">
-        <?php
-            echo "<img src=$prodImageUrl>";
-        ?>
-        
-    </section>
-        <section class ="descriptionContainer">
-            <?php
-                echo $prodDescription;;
-            ?>
-
-        </section>
-        
-</article>
 
 <style>
-center{
-    padding-top: 10px;
+
+img{
+    border: 5px solid black;
+    border-radius: 15px;
+    height: 25vh;
+    width: 25vh;
+}
+h1{
+    color: black;
+    font-size: xx-large;
+    font-weight: bolder;
 }
 
-.container > * {
-    display: inline-block;
-}
-
-.container{
-}
-
-
-
-.image{
-    height: 100x;
-    width: 15%;
-    /* background-color: red; */
-    float:left;
-    border: 1px solid;
-    padding:10px;
-    margin-right: 50px;
-}
-
-.image img{
-    width: 100%;
-    height: auto;
-}
-
-.descriptionContainer{
-    height: 400px;
-    width: 400px;
-    
-}
 </style>

@@ -37,6 +37,8 @@ foreach ( $_COOKIE as $key => $value )
                   <p><input type="text" name="login"/></p>
                   <p>Hasło </p>
                   <p><input type="password" name="pass"/></p>
+                  <p>Powtórz hasło</p>
+                  <p><input type="password" name="passRepeat"/></p>
                   <p>Kontakt </p>
                   <p><textarea name="contact"></textarea></p>
                   <center><p><input type="submit" name="register" value="Zarejestruj"/></p></center>
@@ -82,16 +84,35 @@ foreach ( $_COOKIE as $key => $value )
                 $contact = $_POST['contact'];
                 $login = $_POST['login'];
                 $password = $_POST['pass'];
-                $password_hash = password_hash($password, PASSWORD_BCRYPT);
-    
-                // zapytanie do bazy danych, które wstawi nowy produkt
-                $sql = "INSERT INTO `users`(`id`, `name`, `login`, `password`, `contact`)
-                VALUES (NULL, '$name', '$login', '$password_hash', '$contact')";
+                $passRepeat = $_POST['passRepeat'];
                 
-                if($name != '' || $login != '' || $contact != '' || $password != ''){
-                    if($result = mysqli_query($connection, $sql)) echo "Dodano użytkownika $name";
-                    else echo "Nie udało się dodać produktu";                
-                }
+                $password_hash = password_hash($password, PASSWORD_BCRYPT);
+        
+                    // zapytanie do bazy danych, które wstawi nowego uzytkownika
+                    $sql = "INSERT INTO `users`(`id`, `name`, `login`, `password`, `contact`)
+                    VALUES (NULL, '$name', '$login', '$password_hash', '$contact')";
+                    
+                    // sprawdzenie czy pola nie są puste
+                    if($name != '' && $login != '' && $contact != '' && $password != '' && $passRepeat != '' ){
+                        // sprawdzenie czy powtórzone hasło się zgadza
+                        if($password != $passRepeat){
+                            echo "Hasła się nie zgadzają, sprawdź czy w obu rubrykach są takie same";
+                        }else{
+                            // czy istnieje duplikat
+                            $checkQuery = mysqli_query($connection, "SELECT * FROM `users` WHERE login = '$login'");
+                            if($checkQuery->num_rows == 0 ){
+                                if($result = mysqli_query($connection, $sql)) echo "Dodano użytkownika $name";
+                                else echo "Nie udało się dodać użytkownika";   
+                            }else{
+                                echo "Taki użytkownik już istnieje";
+                            }
+
+
+             
+                        }
+                    }else{
+                        echo "Sprawdź, czy pola nie są puste";
+                    }
             }
         }
     ?>
