@@ -4,6 +4,10 @@
 
 <center><h1>Dostępne gadżety</h1></center>
 <section class ="wrap">
+<form action="" method="POST"> 
+  <center><p><input type="text" name="search"/></p> </center>
+  <center><p><input type="submit" value="Wyszukaj" name="sub"/>
+</form>
 <section class="container">
 
 <?php
@@ -12,7 +16,9 @@
     $image = "image";
     $button = "btn";
     // query, które wyświetli obecne produkty, które znajdują się w bazie
-    $query = "SELECT * FROM products";
+    // $query = "SELECT * FROM products";
+    // wyszukiwarka
+  $query = "SELECT * FROM products WHERE nazwa like '".@$_POST['search']."%'";
 	$result = mysqli_query($connection, $query);
 	while($row = mysqli_fetch_array($result)){
         $nazwa = $row['nazwa'];

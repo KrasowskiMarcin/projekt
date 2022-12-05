@@ -64,13 +64,16 @@ foreach ( $_COOKIE as $key => $value )
                         echo 'Zalogowano jako '.$row['name'];
                         $_SESSION["loggedIn"] = true;
                         $_SESSION["userId"] = $row["id"];
+                        // echo "<meta http-equiv='refresh' content='0'>";
+                        echo " Wejdź na stronę główną, aby mieć dostęp do wszystkich funkcji.";
                     }else{
                         session_destroy();
                         echo "Błąd logowania";
                         // $_SESSION["loggedIn"] = false;
                     }
                 }
-            }               
+            }            
+             
             }
         }
 

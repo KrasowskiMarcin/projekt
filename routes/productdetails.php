@@ -19,7 +19,7 @@
 
 <?php
     echo "<center><h1>$prodName</h1></center>";
-    echo "<center><h1>$prodDescription</h1></center>";
+    echo "<center><p>$prodDescription</p></center>";
     echo "<img src=$prodImageUrl>";
 ?>
 

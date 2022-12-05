@@ -26,9 +26,14 @@
 
     <nav class="topnav" id="myTopnav">
         <a href="index.php?page=./routes/home">Strona główna</a>
-        <a href="index.php?page=./routes/add">Dodaj produkt</a>
+        <?php
+        if(isset($_COOKIE["userId"])){
+        echo "<a href='index.php?page=./routes/add'>Dodaj produkt</a>".
+        "<a href='index.php?page=./routes/myaccount'>Moje konto</a>";
+        }
+        ?>
+        
         <a href="index.php?page=./routes/logreg">Zaloguj/Zarejestruj</a>
-        <a href="index.php?page=./routes/myaccount">Moje konto</a>
         <a href="javascript:void(0);" class="icon" onclick="myFunction()">
             <i class="fa fa-bars"></i>
         </a>
