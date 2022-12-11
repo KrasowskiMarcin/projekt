@@ -28,8 +28,8 @@
             $imageUrl = $_POST['imageUrl'];
 
             // zapytanie do bazy danych, które wstawi nowy produkt
-            $sql = "INSERT INTO `products`(`id`, `nazwa`, `opis`, `url_obrazu`)
-	        VALUES (NULL, '$name', '$description', '$imageUrl')";
+            $sql = "INSERT INTO `products`(`id`, `nazwa`, `opis`, `url_obrazu`, `user_id`)
+	        VALUES (NULL, '$name', '$description', '$imageUrl', '$_COOKIE[userId]')";
 
             if($result = mysqli_query($connection, $sql)) echo "Dodano $name";
             else echo "Nie udało się dodać produktu";
