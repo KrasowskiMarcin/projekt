@@ -18,7 +18,7 @@
     // query, które wyświetli obecne produkty, które znajdują się w bazie
     // $query = "SELECT * FROM products";
     // wyszukiwarka
-  $query = "SELECT * FROM products WHERE nazwa like '".@$_POST['search']."%'";
+  $query = "SELECT * FROM products WHERE nazwa like '%".@$_POST['search']."%'";
 	$result = mysqli_query($connection, $query);
 	while($row = mysqli_fetch_array($result)){
         $nazwa = $row['nazwa'];

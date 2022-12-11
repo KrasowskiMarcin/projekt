@@ -27,12 +27,18 @@
             $description = $_POST['description'];
             $imageUrl = $_POST['imageUrl'];
 
+            if($name != '' && $description != '' && $imageUrl != ''){
+
             // zapytanie do bazy danych, które wstawi nowy produkt
             $sql = "INSERT INTO `products`(`id`, `nazwa`, `opis`, `url_obrazu`, `user_id`)
 	        VALUES (NULL, '$name', '$description', '$imageUrl', '$_COOKIE[userId]')";
 
             if($result = mysqli_query($connection, $sql)) echo "Dodano $name";
             else echo "Nie udało się dodać produktu";
+            }else{
+                echo "Uzupełnij wszystkie pola";
+            }
+
 
         }
     ?>
